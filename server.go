@@ -2,14 +2,18 @@ package main
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 )
 
 func newServer(addr string) *http.Server {
 	return &http.Server{
-		Addr:    addr,
-		Handler: getRoutes(),
+		Addr:         addr,
+		Handler:      getRoutes(),
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 5 * time.Second,
+		IdleTimeout:  3 * time.Second,
 	}
 }
 
