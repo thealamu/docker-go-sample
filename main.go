@@ -13,7 +13,8 @@ func main() {
 }
 
 func run(addr string) error {
-	return nil
+	srv := newServer(addr)
+	return srv.ListenAndServe()
 }
 
 func getRunAddr() string {
