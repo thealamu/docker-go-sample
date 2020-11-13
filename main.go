@@ -14,6 +14,7 @@ func main() {
 
 func run(addr string) error {
 	srv := newServer(addr)
+	log.Println("Serving on", srv.Addr)
 	return srv.ListenAndServe()
 }
 
