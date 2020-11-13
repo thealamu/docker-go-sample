@@ -15,6 +15,9 @@ func newServer(addr string) *http.Server {
 
 func getRoutes() http.Handler {
 	r := mux.NewRouter()
-	r.HandleFunc()
+
+	r.HandleFunc("/", handleRoot()).Methods(http.MethodGet)
+	r.HandleFunc("/{name:[a-zA-Z]+}", handleGreeting()).Methods(http.MethodGet)
+
 	return r
 }
